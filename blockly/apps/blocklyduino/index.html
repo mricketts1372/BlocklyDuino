@@ -9,6 +9,7 @@
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="spin.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
+  <script type="text/javascript" src="config.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
   <script>
 
@@ -154,7 +155,7 @@ function init() {
   };
   window.addEventListener('resize', onresize, false);
 
-  var toolbox = document.getElementById('toolbox');
+  var toolbox = renderBlocks(toolbox);
   Blockly.inject(document.getElementById('content_blocks'),
       {grid:
           {spacing: 25,
@@ -317,6 +318,7 @@ function init() {
   <div id="content_blocks" class="content"></div>
   <textarea id="content_arduino" class="content" readonly wrap="off"></textarea>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
+<<<<<<< HEAD
 
   <xml id="toolbox" style="display: none">
     <category name="Logic">
@@ -446,5 +448,7 @@ function init() {
       <block type="grove_motor_shield"></block>
     </category>
   </xml>
+=======
+>>>>>>> parent of de94cff... Revert "define blocks in separate config.js file"
 </body>
 </html>
