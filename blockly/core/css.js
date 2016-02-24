@@ -151,12 +151,12 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTooltipDiv {',
-  '  background-color: #e0e0e0;',
+  '  background-color: #ffffc7;',
   '  border: 1px solid #ddc;',
   '  box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);',
   '  color: #000;',
   '  display: none;',
-  '  font-family: courier;',
+  '  font-family: sans-serif;',
   '  font-size: 9pt;',
   '  opacity: 0.9;',
   '  padding: 2px;',
@@ -294,7 +294,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyHtmlInput {',
   '  border: none;',
-  '  font-family: courier;',
+  '  font-family: sans-serif;',
   '  font-size: 11pt;',
   '  outline: none;',
   '  width: 100%',
@@ -302,7 +302,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyMainBackground {',
   '  stroke-width: 1;',
-  '  stroke: #e0e0e0;',  /* Equates to #ddd due to border being off-pixel. */
+  '  stroke: #c6c6c6;',  /* Equates to #ddd due to border being off-pixel. */
   '}',
 
   '.blocklyMutatorBackground {',
@@ -537,12 +537,12 @@ Blockly.Css.CONTENT = [
    */
 
   '.blocklyWidgetDiv .goog-menu {',
-  '  background: #e0e0e0;',
+  '  background: #fff;',
   '  border-color: #ccc #666 #666 #ccc;',
   '  border-style: solid;',
   '  border-width: 1px;',
   '  cursor: default;',
-  '  font: normal 13px courier, courier;',
+  '  font: normal 13px Arial, sans-serif;',
   '  margin: 0;',
   '  outline: none;',
   '  padding: 4px 0;',
@@ -631,10 +631,10 @@ Blockly.Css.CONTENT = [
   /* State: hover. */
   '.blocklyWidgetDiv .goog-menuitem-highlight,',
   '.blocklyWidgetDiv .goog-menuitem-hover {',
-  '  background-color: #e0e0e0;',
+  '  background-color: #d6e9f8;',
      /* Use an explicit top and bottom border so that the selection is visible',
       * in high contrast mode. */
-  '  border-color: #e0e0e0;',
+  '  border-color: #d6e9f8;',
   '  border-style: dotted;',
   '  border-width: 1px 0;',
   '  padding-bottom: 3px;',
