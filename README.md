@@ -18,29 +18,34 @@ BlocklyDuino also support [Grove](http://www.seeedstudio.com/wiki/GROVE_System) 
 ### Demo
 
 BlocklyDuino is a web tool. You can give it a try at
-[Web](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html) to see the working BlocklyDuino.
+[Web](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/) to see the working BlocklyDuino.
 
 You can link directly to examples
-* [demo 1](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/blink.xml)
-* [demo 2](http://www.gasolin.idv.tw/public/blockly/apps/blocklyduino/index.html?url=/public/blockly/demos/blocklyduino/examples/servo_potentio.xml)
+* [demo 1](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/index.html?url=examples/blink.xml) make default LED blink
+* [demo 2](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/index.html?url=examples/servo_potentio.xml) control servo with potentio rotator
+* [demo 3](http://blocklyduino.github.io/BlocklyDuino/blockly/apps/blocklyduino/index.html?url=examples/click_color.xml) click button to change LED colors
 
-Or watch the [video demo](http://www.youtube.com/watch?v=_swiyXcUvNY)
+Or watch the [video demos](http://www.youtube.com/watch?v=_swiyXcUvNY)
 
 ### Run locally on your web browser
 
 If you want to install it locally. Get code from github and open `blockly/apps/blocklyduino/index.html` in your browser.
 
-The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/demos/blocklyduino/index.html for use.
+The preffered way is to put the BlocklyDuino/web folder into a web server and open the url like localhost/public/blockly/apps/blocklyduino/index.html for use.
 
 ### Integrated Arduino upload
 
 To avoid the tedious step of manually pasting code to the Arduino IDE, you can run a mini webserver that uses
-[ino](https://github.com/gumbypp/ino) to upload the code to a connected Arduino board on Mac OS X and Linux systems.
+the [Arduino IDE](https://www.arduino.cc/en/Main/Software) to upload the code to a connected Arduino board on Windows, Mac OS X and Linux systems.
 Invoke this command from the BlocklyDuino root folder:
 
 ```
-python ino_web_server.py
+python arduino_web_server.py
 ```
+
+You can optionally specify the port with `--port=COM3` (or `--port=/dev/tty.foo` on Linux and Mac); if you don't, it will try and guess which port to use.
+
+When the webserver is running, you can access BlocklyDuino itself on [http://127.0.0.1:8080/](http://127.0.0.1:8080/).
 
 ### Usage
 
@@ -55,7 +60,7 @@ OR (if running `ino_web_server.py`):
 
 ### ChangeLog
 
-Check changelog [here](https://github.com/gasolin/BlocklyDuino/blob/master/CHANGELOG.txt)
+Check changelog [here](https://github.com/BlocklyDuino/BlocklyDuino/blob/master/CHANGELOG.txt)
 
 ### Authors and Contributors
 Fred Lin (@gasolin) .

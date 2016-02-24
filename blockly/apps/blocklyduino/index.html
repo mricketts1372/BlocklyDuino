@@ -46,6 +46,9 @@ function tabClick(clickedName) {
     }
   }
 
+  if (document.getElementById('tab_blocks').className == 'tabon') {
+    Blockly.mainWorkspace.setVisible(false);
+  }
   // Deselect all tabs and hide all panes.
   for (var i = 0; i < TABS_.length; i++) {
     var name = TABS_[i];
@@ -60,6 +63,9 @@ function tabClick(clickedName) {
   document.getElementById('content_' + clickedName).style.visibility =
       'visible';
   renderContent();
+  if (clickedName == 'blocks') {
+    Blockly.mainWorkspace.setVisible(true);
+  }
   Blockly.fireUiEvent(window, 'resize');
 }
 
@@ -294,6 +300,7 @@ function init() {
               <button type="button" onclick="uploadClick()">Upload</button>
               <button type="button" onclick="resetClick()">Reset</button>
               <button onclick="discard()">Discard</button>
+              <button onclick="saveCode()">Save Arduino Code</button>
               <button onclick="save()">Save XML</button>
               <button id="fakeload">Load XML</button>
               <input type="file" id="load" style="display: none;"/>
@@ -312,17 +319,89 @@ function init() {
   <textarea id="content_xml" class="content" wrap="off"></textarea>
 
   <xml id="toolbox" style="display: none">
-    <category name="In/Out">
+    <category name="Logic">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_null"></block>
+    </category>
+    <category name="Control">
+      <block type="base_delay">
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_for">
+        <value name="FROM">
+          <block type="math_number">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="base_map">
+        <value name="DMAX">
+          <block type="math_number">
+            <field name="NUM">180</field>
+          </block>
+        </value>
+      </block>
+    </category>
+    <category name="Text">
+      <block type="text"></block>
+    </category>
+    <category name="Variables" custom="VARIABLE"></category>
+    <category name="Functions" custom="PROCEDURE"></category>
+    <sep></sep>
+    <category name="Input/Output">
       <block type="inout_highlow"></block>
       <block type="inout_digital_write"></block>
       <block type="inout_digital_read"></block>
-      <block type="inout_analog_write"></block>
+      <block type="inout_analog_write">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
       <block type="inout_analog_read"></block>
-      <block type="serial_print"></block>
+      <block type="serial_print">
+        <value name="CONTENT">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+      </block>
+      <block type="inout_tone">
+        <value name="NUM">
+          <block type="math_number">
+            <field name="NUM">440</field>
+          </block>
+        </value>
+      </block>
+      <block type="inout_notone"></block>
       <block type="inout_buildin_led"></block>
     </category>
     <category name="Servo">
-      <block type="servo_move"></block>
+      <block type="servo_move">
+        <value name="DEGREE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
       <block type="servo_read_degrees"></block>
     </category>
     <category name="Grove Analog">
@@ -340,52 +419,32 @@ function init() {
       <block type="grove_pir_motion_sensor"></block>
       <block type="grove_line_finder"></block>
       <block type="grove_rgb_led"></block>
-      <block type="grove_rgb_led_container"></block>
-      <block type="grove_rgb_led_item"></block>
+      <block type="grove_ultrasonic_ranger"></block>
     </category>
     <category name="Grove LCD">
-      <block type="grove_serial_lcd_print"></block>
+      <block type="grove_serial_lcd_print">
+        <value name="TEXT">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <value name="TEXT2">
+          <block type="text">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+        <value name="DELAY_TIME">
+          <block type="math_number">
+            <field name="NUM">1000</field>
+          </block>
+        </value>
+      </block>
       <block type="grove_serial_lcd_power"></block>
       <block type="grove_serial_lcd_effect"></block>
-      <block type="grove_ultrasonic_ranger"></block>
     </category>
     <category name="Grove Motor">
       <block type="grove_motor_shield"></block>
     </category>
-    <sep></sep>
-    <category name="Logic">
-      <block type="controls_if"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_null"></block>
-    </category>
-    <category name="Control">
-      <block type="base_delay"></block>
-      <block type="controls_for">
-        <value name="FROM">
-          <block type="math_number">
-            <field name="NUM">1</field>
-          </block>
-        </value>
-        <value name="TO">
-          <block type="math_number">
-            <field name="NUM">10</field>
-          </block>
-        </value>
-      </block>
-    </category>
-    <category name="Math">
-      <block type="base_map"></block>
-      <block type="math_number"></block>
-      <block type="math_arithmetic"></block>
-    </category>
-    <category name="Text">
-      <block type="text"></block>
-    </category>
-    <sep></sep>
-    <category name="Variables" custom="VARIABLE"></category>
-    <category name="Functions" custom="PROCEDURE"></category>
   </xml>
 </body>
 </html>

@@ -79,6 +79,21 @@ Blockly.Arduino.inout_analog_read = function() {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+Blockly.Arduino.inout_tone = function() {
+  var dropdown_pin = this.getFieldValue("PIN");
+  var value_num = Blockly.Arduino.valueToCode(this, "NUM", Blockly.Arduino.ORDER_ATOMIC);
+  Blockly.Arduino.setups_['setup_output'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
+  var code = "tone(" + dropdown_pin + ", " + value_num + ");\n";
+  return code;
+};
+
+Blockly.Arduino.inout_notone = function() {
+  var dropdown_pin = this.getFieldValue("PIN");
+  Blockly.Arduino.setups_['setup_output'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
+  var code = "noTone(" + dropdown_pin + ");\n";
+  return code;
+};
+
 Blockly.Arduino.inout_highlow = function() {
   // Boolean values HIGH and LOW.
   var code = (this.getFieldValue('BOOL') == 'HIGH') ? 'HIGH' : 'LOW';
@@ -97,24 +112,19 @@ void setup() {
 
 void loop() {
 servo_11.write(0);
-delay(2000);
 
 servo_11.write(150); //0~180
-delay(2000);
 }
 */
 Blockly.Arduino.servo_move = function() {
   var dropdown_pin = this.getFieldValue('PIN');
   var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
-  //value_degree = value_degree.replace('(','').replace(')','')
-  var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '1000'
-  //delay_time = delay_time.replace('(','').replace(')','');
 
   Blockly.Arduino.definitions_['define_servo'] = '#include <Servo.h>\n';
   Blockly.Arduino.definitions_['var_servo' + dropdown_pin] = 'Servo servo_' + dropdown_pin + ';\n';
   Blockly.Arduino.setups_['setup_servo_' + dropdown_pin] = 'servo_' + dropdown_pin + '.attach(' + dropdown_pin + ');\n';
 
-  var code = 'servo_' + dropdown_pin + '.write(' + value_degree + ');\n' + 'delay(' + delay_time + ');\n';
+  var code = 'servo_' + dropdown_pin + '.write(' + value_degree + ');\n';
   return code;
 };
 
@@ -135,6 +145,6 @@ Blockly.Arduino.serial_print = function() {
 
   Blockly.Arduino.setups_['setup_serial_' + profile.default.serial] = 'Serial.begin(' + profile.default.serial + ');\n';
 
-  var code = 'Serial.print(' + content + ');\nSerial.print("\\t");\n';
+  var code = 'Serial.println(' + content + ');\n';
   return code;
 };
