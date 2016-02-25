@@ -34,7 +34,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['base_delay'] = {
   helpUrl: 'http://arduino.cc/en/Reference/delay',
   init: function() {
-    this.setColour(120);
+    this.setColour(20);
     this.appendValueInput("DELAY_TIME", 'Number')
         .appendField("Delay")
         .setCheck('Number');
@@ -48,7 +48,7 @@ Blockly.Blocks['base_delay'] = {
 Blockly.Blocks['base_map'] = {
   helpUrl: 'http://arduino.cc/en/Reference/map',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendValueInput("NUM", 'Number')
         .appendField("Map ")
         .setCheck('Number');
@@ -66,7 +66,7 @@ Blockly.Blocks['base_map'] = {
 Blockly.Blocks['inout_buildin_led'] = {
    helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
    init: function() {
-     this.setColour(190);
+     this.setColour(90);
      this.appendDummyInput()
 	       .appendField("Build-in LED Stat")
 	       .appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), "STAT");
@@ -79,7 +79,7 @@ Blockly.Blocks['inout_buildin_led'] = {
 Blockly.Blocks['inout_digital_write'] = {
   helpUrl: 'http://arduino.cc/en/Reference/DigitalWrite',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
 	      .appendField("DigitalWrite PIN#")
 	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
@@ -94,7 +94,7 @@ Blockly.Blocks['inout_digital_write'] = {
 Blockly.Blocks['inout_digital_read'] = {
   helpUrl: 'http://arduino.cc/en/Reference/DigitalRead',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
 	      .appendField("DigitalRead PIN#")
 	      .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
@@ -106,7 +106,7 @@ Blockly.Blocks['inout_digital_read'] = {
 Blockly.Blocks['inout_analog_write'] = {
   helpUrl: 'http://arduino.cc/en/Reference/AnalogWrite',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
         .appendField("AnalogWrite PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
@@ -123,7 +123,7 @@ Blockly.Blocks['inout_analog_write'] = {
 Blockly.Blocks['inout_analog_read'] = {
   helpUrl: 'http://arduino.cc/en/Reference/AnalogRead',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
         .appendField("AnalogRead PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN");
@@ -135,7 +135,7 @@ Blockly.Blocks['inout_analog_read'] = {
 Blockly.Blocks['inout_tone'] = {
   helpUrl: 'http://www.arduino.cc/en/Reference/Tone',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
         .appendField("Tone PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
@@ -152,7 +152,7 @@ Blockly.Blocks['inout_tone'] = {
 Blockly.Blocks['inout_notone'] = {
   helpUrl: 'http://www.arduino.cc/en/Reference/NoTone',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
         .appendField("No tone PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN");
@@ -166,7 +166,7 @@ Blockly.Blocks['inout_notone'] = {
 Blockly.Blocks['inout_highlow'] = {
   helpUrl: 'http://arduino.cc/en/Reference/Constants',
   init: function() {
-    this.setColour(230);
+    this.setColour(30);
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([["HIGH", "HIGH"], ["LOW", "LOW"]]), 'BOOL')
     this.setOutput(true, 'Boolean');
@@ -179,7 +179,7 @@ Blockly.Blocks['inout_highlow'] = {
 Blockly.Blocks['servo_move'] = {
   helpUrl: 'http://www.arduino.cc/playground/ComponentLib/servo',
   init: function() {
-    this.setColour(190);
+    this.setColour(90);
     this.appendDummyInput()
         .appendField("Servo")
         .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
@@ -198,7 +198,7 @@ Blockly.Blocks['servo_move'] = {
 Blockly.Blocks['servo_read_degrees'] = {
   helpUrl: 'http://www.arduino.cc/playground/ComponentLib/servo',
   init: function() {
-    this.setColour(190);
+    this.setColour(90);
     this.appendDummyInput()
         .appendField("Servo")
         .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/depot/images/product/a991.jpg", 64, 64))
@@ -215,7 +215,7 @@ Blockly.Blocks['servo_read_degrees'] = {
 Blockly.Blocks['serial_print'] = {
   helpUrl: 'http://www.arduino.cc/en/Serial/Print',
   init: function() {
-    this.setColour(230);
+    this.setColour(130);
     this.appendValueInput("CONTENT", 'String')
         .appendField("Serial Print");
     this.setPreviousStatement(true, null);

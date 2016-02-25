@@ -223,7 +223,7 @@ Blockly.Css.CONTENT = [
   '.blocklyText {',
   '  cursor: default;',
   '  fill: #fff;',
-  '  font-family: sans-serif;',
+  '  font-family: courier;',
   '  font-size: 11pt;',
   '}',
 
@@ -294,7 +294,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyHtmlInput {',
   '  border: none;',
-  '  font-family: sans-serif;',
+  '  font-family: courier;',
   '  font-size: 11pt;',
   '  outline: none;',
   '  width: 100%',
@@ -302,7 +302,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyMainBackground {',
   '  stroke-width: 1;',
-  '  stroke: #c6c6c6;',  /* Equates to #ddd due to border being off-pixel. */
+  '  stroke: #e0e0e0;',  /* Equates to #ddd due to border being off-pixel. */
   '}',
 
   '.blocklyMutatorBackground {',
@@ -457,7 +457,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyTreeLabel {',
   '  cursor: default;',
-  '  font-family: sans-serif;',
+  '  font-family: courier;',
   '  font-size: 16px;',
   '  padding: 0 3px;',
   '  vertical-align: middle;',
@@ -542,7 +542,7 @@ Blockly.Css.CONTENT = [
   '  border-style: solid;',
   '  border-width: 1px;',
   '  cursor: default;',
-  '  font: normal 13px Arial, sans-serif;',
+  '  font: 13px courier, courier;',
   '  margin: 0;',
   '  outline: none;',
   '  padding: 4px 0;',
@@ -581,7 +581,7 @@ Blockly.Css.CONTENT = [
    */
   '.blocklyWidgetDiv .goog-menuitem {',
   '  color: #000;',
-  '  font: normal 13px Arial, sans-serif;',
+  '  font: 13px courier, courier;',
   '  list-style: none;',
   '  margin: 0;',
      /* 28px on the left for icon or checkbox; 7em on the right for shortcut. */
@@ -613,7 +613,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyWidgetDiv .goog-menuitem-content {',
   '  color: #000;',
-  '  font: normal 13px Arial, sans-serif;',
+  '  font: 13px courier, courier;',
   '}',
 
   /* State: disabled. */
@@ -634,7 +634,7 @@ Blockly.Css.CONTENT = [
   '  background-color: #d6e9f8;',
      /* Use an explicit top and bottom border so that the selection is visible',
       * in high contrast mode. */
-  '  border-color: #d6e9f8;',
+  '  border-color: #e0e0e0;',
   '  border-style: dotted;',
   '  border-width: 1px 0;',
   '  padding-bottom: 3px;',
