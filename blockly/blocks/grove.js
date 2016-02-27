@@ -211,7 +211,7 @@ Blockly.Blocks['grove_sound_sensor'] = {
   init: function() {
     this.setColour(10);
     this.appendDummyInput()
-        .appendField("Sound Sensor")
+        .appendField("Sound")
         .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/e/e3/Twig-Sound-sensor.jpg/400px-Twig-Sound-sensor.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.analog), "PIN")
@@ -226,7 +226,6 @@ Blockly.Blocks['grove_pir_motion_sensor'] = {
     this.setColour(190);
     this.appendDummyInput()
         .appendField("PIR Motion Sensor")
-        .appendField(new Blockly.FieldImage("http://www.seeedstudio.com/wiki/images/thumb/f/fd/Twig-PIR_Motion_Sensor.jpg/400px-Twig-PIR_Motion_Sensor.jpg", 64, 64))
         .appendField("PIN#")
         .appendField(new Blockly.FieldDropdown(profile.default.digital), "PIN")
     this.setOutput(true, 'Number');

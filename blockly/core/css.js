@@ -294,7 +294,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyHtmlInput {',
   '  border: none;',
-  '  font-family: sans-serif;',
+  '  font-family: courier;',
   '  font-size: 11pt;',
   '  outline: none;',
   '  width: 100%',
