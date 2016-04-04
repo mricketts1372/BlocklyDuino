@@ -181,28 +181,41 @@ function init() {
     body {
       background-color: #e0e0e0;
       font-family: courier;
+       font-size: 150%;
       margin: 0;
       overflow: hidden;
     }
+
     h1 {
-      font-weight: normal;
-      font-size: 140%;
-      margin-left: 5px;
-      margin-right: 5px;
+      font-weight: bold;
+      font-size: 250%;
+      margin-left: 5;
+      margin-right: 0;
+       color: #696969;
     }
 
-    /* Tabs */
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #eee;
+}
+  li.logo {
+    display: inline;
+}
+  /* Tabs */
     #tabRow>td {
-      border: 1px solid #fff;
+      border: 4px solid #e0e0e0;
     }
     td.tabon {
-      border-bottom-color: #fff !important;
+      border-bottom-color: #ff0080 !important;
       background-color: #e0e0e0;
-      padding: 5px 19px;
+      padding: 1px 19px;
     }
     td.taboff {
       cursor: pointer;
-      padding: 5px 19px;
+      padding: 1px 19px;
     }
     td.taboff:hover {
       background-color: #eee;
@@ -217,23 +230,24 @@ function init() {
       border-left-style: none !important;
       border-right-style: none !important;
       width: 99%;
+     padding: 10px 19px;
       text-align: right;
     }
 
     table {
       border-collapse: collapse;
-      margin: 0;
+      margin: 5px;
       padding: 0;
       border: none;
     }
     td {
-      padding: 0;
-      vertical-align: top;
+      padding: 8px;
+      vertical-align: center;
     }
     .content {
       visibility: hidden;
       margin: 0;
-      padding: 1ex;
+      padding: 2ex;
       position: absolute;
       direction: ltr;
     }
@@ -254,20 +268,30 @@ function init() {
       overflow: scroll;
     }
     button {
-      padding: 1px 1em;
-      font-size: 90%;
+      padding: 3px 1em;
+      font-size: 110%;
       border-radius: 4px;
-      border: 1px solid #ddd;
-      background-color: #eee;
-      color: black;
+      border: 2px solid #ff0080;
+      margin-right: 5px;
+      background-color: #e0e0e0;
+      color: #ff0080;
+    }
+    button.custom {
+      padding: 3px 1em;
+      font-size: 110%;
+      border-radius: 4px;
+      border: 2px solid #e0e0e0;
+      margin-right: 5px;
+      background-color: #e0e0e0;
+      color: #e0e0e0;
     }
     button.launch {
-      border: 1px solid #d43;
-      background-color: #d43;
+      border: 1px solid #fff;
+      background-color: #fff;
       color: white;
     }
     button:active {
-      border: 1px solid blue !important;
+      border: 1px solid white !important;
     }
     button:hover {
       box-shadow: 2px 2px 5px #888;
@@ -278,14 +302,14 @@ function init() {
   <table height="100%" width="100%">
     <tr>
       <td>
-        <h1><a href="https://github.com/gasolin/BlocklyDuino/wiki">cStyle</a> &gt; create your own codes here</h1>
+<h1><a href="https://thepinkthink.com"><img style="height: 50px; width: 55px; margin: 20px 20px  0px 10px;" src="http://gdriv.es/ptcbimages/pt.png"></a>cStyle Create</h1>
       </td>
     </tr>
     <tr>
       <td>
         <table width="100%">
           <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')">Blocks</td>
+            <td id="tab_blocks" class="tabon" onclick="tabClick('blocks')"><font size="+2" text-aligh="center" color="#545454"</font>Blocks</font> </td>
             <td class="tabmin">&nbsp;</td>
             <!--td id="tab_javascript" class="taboff" onclick="tabClick(this.id)">JavaScript</td>
             <td class="tabmin">&nbsp;</td-->
@@ -293,18 +317,19 @@ function init() {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_python" class="taboff" onclick="tabClick(this.id)">Python</td>
             <td class="tabmin">&nbsp;</td-->
-            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')">Arduino</td>
+            <td id="tab_arduino" class="taboff" onclick="tabClick('arduino')"><font size="+2" text-aligh="center" color="#545454"</font>Arduino</td>
             <td class="tabmin">&nbsp;</td>
-            <td id="tab_xml" class="taboff" onclick="tabClick('xml')">XML</td>
+            <td id="tab_xml" class="taboff" onclick="tabClick('xml')"><font size="+2" text-aligh="center" color="#545454"</font>XML</td>
             <td class="tabmax">
-              <button type="button" onclick="uploadClick()">Upload</button>
-              <button type="button" onclick="resetClick()">Reset</button>
-              <button onclick="discard()">Discard</button>
-              <button onclick="saveCode()">Save Arduino Code</button>
-              <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
+            <button class="custom" onclick="resetClick()"><font color="#e0e0e0"</font>Reset</button>
+           <button type="button" onclick="uploadClick()">Upload to cStyle</button>
+              <a href="JavaScript:discard()"><img style="margin: 0px 10px  0px 10px;" src="http://gdriv.es/ptcbimages/trash-6-32.png"></a>
+              <a href="JavaScript:saveCode()"><img style="margin: 0px 10px  0px 10px;" src="http://gdriv.es/ptcbimages/downloads-32.png"></a>
+              <a href="JavaScript:saveCode()"><img style="margin: 0px 10px  0px 10px;" src="http://gdriv.es/ptcbimages/cloud-upload-32.png"></a>
+              <button id="fakeload"><img src="http://gdriv.es/ptcbimages/cloud-download-32.png"></button>
               <input type="file" id="load" style="display: none;"/>
               <!--button class="launch" onclick="runJS()">Run Program</button-->
+
             </td>
           </tr>
         </table>
@@ -326,7 +351,11 @@ function init() {
       <block type="logic_negate"></block>
       <block type="logic_null"></block>
     </category>
+    <category name="rgbled">
+      <block type="rgbled_show"></block>
+      </category>
     <category name="Control">
+    <block type="rgbled_show"></block>
       <block type="base_delay">
         <value name="DELAY_TIME">
           <block type="math_number">
@@ -409,6 +438,7 @@ function init() {
       <block type="grove_temporature_sensor"></block>
       <block type="grove_sound_sensor"></block>
       <block type="grove_thumb_joystick"></block>
+      <block type="grove_light_sensor"></block>
     </category>
     <category name="Grove">
       <block type="grove_led"></block>
